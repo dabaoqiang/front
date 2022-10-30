@@ -40,5 +40,11 @@
     "commitizen": {
       "path": "node_modules/cz-customizable"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [      //src目录下所有的js和vue文件
+      "eslint --fix",           // 自动修复
+      "git add"                 // 自动提交时修复
+    ]
   }
 }
