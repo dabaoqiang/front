@@ -7,6 +7,16 @@ const service = axios.create({
 })
 export default service
 
+service.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = localStorage.getItem('token')
+    return config
+  },
+  (error) => {
+    return Promise.reject(new Error(error))
+  }
+)
+
 service.interceptors.response.use(
   (response) => {
     console.log(response)
